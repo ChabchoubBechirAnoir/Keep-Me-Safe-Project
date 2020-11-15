@@ -1,0 +1,9 @@
+# scope-statement-blackpunju_ss
+scope-statement-blackpunju_ss created by GitHub Classroom
+
+La solution que nous développerons participe à la protection de l’environnement. 
+Elle présente l’intérêt particulier de suivre en temps réel les conditions et l’état du l’air. 
+Notre Solution IOT sera accompagnée par une application mobile hybride.
+
+vidéo de présentation de cahier des charges de notre projet :
+https://youtu.be/uQlKYHiUeck
