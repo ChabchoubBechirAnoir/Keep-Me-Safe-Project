@@ -1,0 +1,8 @@
+{
+  "name": "Keep Me Safe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "530a43cc"
+}
