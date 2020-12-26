@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MQTT Client - History</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+      table {
+        width: 100%;
+      }
+      .col1 {
+        min-width: 150px;
+        text-align: left;
+      }
+      .col2 {
+        width: 40%;
+        text-align: left;
+      }
+      .col3 {
+        width: 40%;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <a href="/">MAIN</a> <a href="/history">HISTORY</a>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th class="col1">Datetime</th>
+            <th class="col2">Topic</th>
+            <th class="col3">Payload</th>
+          </tr>
+        </thead>
+        <tbody id="tbl">
+          <% history.forEach(function (data) { %>
+          <tr>
+            <td><%= data.datetime %></td>
+            <td><%= data.topic %></td>
+            <td><%= data.payload %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
