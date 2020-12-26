@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fs = require('fs');
-const http = require('http');
 const https = require('https');
+const sts = require('strict-transport-security');
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/cert.pem', 'utf8');
@@ -19,6 +19,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+const globalSTS = sts.getSTS({
+  'max-age':{'days': 365},
+  'includeSubDomains': 'false',
+  'preload': true
+});
+app.use(globalSTS);
 const mongoose = require('mongoose');
 
 const connection = mongoose.connect('mongodb://localhost:27017');
