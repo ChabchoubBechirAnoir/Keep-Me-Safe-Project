@@ -3,7 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/chain.pem', 'utf8');
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -40,5 +51,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+const httpsServer = https.createServer(credentials, app);
 module.exports = app;
