@@ -9,4 +9,10 @@ export class Tab3Page {
 
   constructor() {}
 
+
+  handleFileInput(event) {
+    console.log(event);
+    this.userDetails.profilePic = event.target.files[0];
+  }
+
 }
