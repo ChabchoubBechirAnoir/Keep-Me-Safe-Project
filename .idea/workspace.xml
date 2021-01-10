@@ -20,7 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0460dca-603b-46cf-a123-c5a2b2b1e66c" name="Default Changelist" comment="configure https">
-      <change beforePath="$PROJECT_DIR$/Frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/controllers/identity.provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/controllers/identity.provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/routes/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/NodeJSRestAPI/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NodeJSRestAPI/views/index.ejs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609008556815</updated>
-      <workItem from="1609008557870" duration="2777000" />
+      <workItem from="1609008557870" duration="2846000" />
+      <workItem from="1610239308218" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="configure https">
       <created>1609009300648</created>
@@ -84,6 +95,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="configure https" />

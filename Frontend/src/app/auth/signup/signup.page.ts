@@ -58,7 +58,7 @@ this.authService.signup(this.postData).subscribe(
 this.storageService
 .store(AuthConstants.AUTH, res.userData)
 .then(res => {
-this.router.navigate(['tabs/tab2']);
+this.router.navigate(['login']);
 });
 } 
 ,

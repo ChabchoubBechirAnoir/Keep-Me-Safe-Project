@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
+import jwt_decode from 'jwt-decode';
+
 const { Storage } = Plugins;
 @Injectable({
 providedIn: 'root'
@@ -19,7 +21,7 @@ value: encryptedValue
 // Get the value
 async get(storageKey: string) {
 const ret = await Storage.get({ key: storageKey });
-return JSON.parse(unescape(atob(ret.value)));
+return jwt_decode(JSON.parse(unescape(atob(ret.value))));
 }
 
 async removeStorageItem(storageKey: string) {

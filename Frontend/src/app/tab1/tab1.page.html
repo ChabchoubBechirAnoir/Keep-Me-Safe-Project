@@ -12,11 +12,18 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+  <ion-item>
+    <a>{{profiledata?.forename}}</a>
+  </ion-item>
+  <ion-item>
+    <a>{{profiledata?.surname}}</a>
+  </ion-item>
+  <ion-item>
+    <a>{{profiledata?.created_at}}</a>
+  </ion-item>
+  <ion-item>
+    <a>{{profiledata?.location}}</a>
+  </ion-item>
+  <ion-button (click)="logout()">logout</ion-button>
 
-  <app-explore-container name="Tab 1 page">
-    <ion-item lines='none'>
-      Login<a routerLink='/login'>Sign in.</a>
-      </ion-item>
-  </app-explore-container>
 </ion-content>
