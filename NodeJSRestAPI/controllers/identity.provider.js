@@ -118,4 +118,18 @@ IdentityProvider.prototype.getUser =  function(req, res, next) {
 IdentityProvider.prototype.minimunPermissionLevelRequired = function(permissionLevel) {
 };
 
+
+IdentityProvider.prototype.DeleteUser =  function(req, res, next) {
+    identityModel.findByUsername(req.body.username).then(async (user)=> {
+        if(!user[0]){
+            return res.status(404).send({errors : ['Does Not Exist']});
+        }
+        else
+        {
+            identityModel.deleteOne({_id :user[0]._id}).then(async (user)=> { });
+            return res.status(200).send({message : ['Deleted']});
+        }
+    });
+  };
+
 module.exports = IdentityProvider;

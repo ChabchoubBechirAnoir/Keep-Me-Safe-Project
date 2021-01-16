@@ -29,4 +29,12 @@ userSchema.statics.sayHello=function(){
 userSchema.statics.findByUsername = (username)=> {
     return mongoose.model("User", userSchema).find({username : username});
 };
+userSchema.statics.Delete = (id)=> {
+    console.log(id)
+    return mongoose.model("User", userSchema).deleteOne({_id : ObjectId(id)});
+}
+// userSchema.statics.removeByUsername = (username)=> {
+//     return mongoose.model("User", userSchema).deleteOne({username : username});
+// };
+
 module.exports = mongoose.model('User',userSchema);

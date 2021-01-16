@@ -17,7 +17,9 @@ router.post('/oauth/token',[identityProvider.PostSignIn]);
 
 router.post('/oauth/token/refresh',[identityProvider.RefreshSignIn]);
 
-router.post('/profile',[identityProvider.getUser]);
+router.post('/profile',[identityProvider.getUser]); 
+
+router.delete('/delete',[identityProvider.DeleteUser]);
 
 
 module.exports = router;
