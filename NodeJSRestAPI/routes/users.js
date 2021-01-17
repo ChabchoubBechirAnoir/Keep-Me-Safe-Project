@@ -21,6 +21,8 @@ router.post('/profile',[identityProvider.getUser]);
 
 router.delete('/delete',[identityProvider.DeleteUser]);
 
+router.put('/update',[identityProvider.UpdateUser]);
+
 
 module.exports = router;
 

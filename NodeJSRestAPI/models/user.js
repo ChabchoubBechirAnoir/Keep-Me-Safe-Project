@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+
 var userSchema = new mongoose.Schema(
     {
         surname : String,
@@ -12,10 +13,12 @@ var userSchema = new mongoose.Schema(
         created_at:{type:Date, default:Date.Now},
         updated_at:{type:Date, default:Date.Now}
     });
-userSchema.statics.createIdentity = (infos)=> {
+
+    userSchema.statics.createIdentity = (infos)=> {
     const user = new mongoose.model("User", userSchema)(infos);
     return user.save();
 };
+
 userSchema.virtual('id').get(function (){
     return this._id.toHexString();
 });
@@ -29,12 +32,12 @@ userSchema.statics.sayHello=function(){
 userSchema.statics.findByUsername = (username)=> {
     return mongoose.model("User", userSchema).find({username : username});
 };
+
 userSchema.statics.Delete = (id)=> {
     console.log(id)
     return mongoose.model("User", userSchema).deleteOne({_id : ObjectId(id)});
 }
-// userSchema.statics.removeByUsername = (username)=> {
-//     return mongoose.model("User", userSchema).deleteOne({username : username});
-// };
+
+
 
 module.exports = mongoose.model('User',userSchema);

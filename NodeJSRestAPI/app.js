@@ -7,14 +7,15 @@ const fs = require('fs');
 const https = require('https');
 const sts = require('strict-transport-security');
 
+//keepmesafe domain
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/keepmesafe.xyz/chain.pem', 'utf8');
 const credentials = {
-  key: privateKey,
-  cert: certificate,
-  ca: ca
-};
+key: privateKey,
+cert: certificate,
+ca: ca
+ };
 var usersRouter = require('./routes/users');
 
 var app = express();
