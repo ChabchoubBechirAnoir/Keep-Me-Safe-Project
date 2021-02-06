@@ -10,7 +10,7 @@ var mqttSchema = new mongoose.Schema({
   });
 
 
-  mqttSchema.statics.createmqtt = (infos)=> {
+mqttSchema.statics.createmqtt = (infos)=> {
     const mqtt = new mongoose.model("MqttData", mqttSchema)(infos);
     return mqtt.save();
 };

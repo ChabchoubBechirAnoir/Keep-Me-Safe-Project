@@ -55,13 +55,7 @@ app.use(function(err, req, res, next) {
 
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
-const io = require('socket.io')(httpsServer);
-io.on('connection', function(socket){
-  console.log('A new user has been connected');
-});
-client.on('connect', function () {
-  client.subscribe('#', function (err) {});
-});
+
 
 //Expose socket.io-client and jquery to clients in browser
 app.use('/lib', express.static(path.join(__dirname, 'node_modules/socket.io-client/dist/')));
