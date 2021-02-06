@@ -31,21 +31,6 @@ const globalSTS = sts.getSTS({
 app.use(globalSTS);
 
 const connection = mongoose.connect('mongodb://localhost:27017');
-var mqttSchema = new mongoose.Schema({
-  datetime: {
-    type: String,
-    default: () => moment().format("YYYY-MM-DD HH:mm:ss")
-  },
-  topic: String,
-  payload: String
-});
-var MqttData = mongoose.model("mqttData", mqttSchema);
-//Connection to MQTT
-const client = mqtt.connect('mqtts://mqtt.keepmesafe.xyz', {
-  port: 8883,
-  username: 'mqttubuntu',
-  password: '123456789'
-});
 // view engine setup
 app.use(logger('dev'));
 app.use(express.json());
@@ -53,7 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
-app.use('/mqtts',mqttsRouter);
+app.use('/mqtts', mqttsRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -77,18 +62,7 @@ io.on('connection', function(socket){
 client.on('connect', function () {
   client.subscribe('#', function (err) {});
 });
-//On received MQTT message
-client.on('message', function (topic, message) {
-  //Emit event to socket
-  io.emit("mqtt", { datetime: moment().format("YYYY-MM-DD HH:mm:ss"), topic: topic, message: message.toString()});
-  //Saving received data to MongoDB
-  var mongomqttdata = new MqttData({
-    topic: topic,
-    payload: message.toString()
-  });
-  mongomqttdata.save();
-  console.log("a new message is received from your sensors")
-});
+
 //Expose socket.io-client and jquery to clients in browser
 app.use('/lib', express.static(path.join(__dirname, 'node_modules/socket.io-client/dist/')));
 app.use('/lib', express.static(path.join(__dirname, 'node_modules/jquery/dist')));

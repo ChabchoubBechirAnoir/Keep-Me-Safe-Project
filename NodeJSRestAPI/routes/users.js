@@ -25,5 +25,3 @@ router.put('/update',[identityProvider.UpdateUser]);
 
 
 module.exports = router;
-
-router.post
