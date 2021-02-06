@@ -32,7 +32,7 @@ IdentityProvider.prototype.PreSignIn = async(req, res , next) => {
 IdentityProvider.prototype.signIn = async (req, res , next) => {
     //input : singInId , username , password 
     //route : '/authenticate'
-    //output : authorization code 
+    //output : authorizationCode 
     try {
     if(this.SignInId !== req.body.SignInId){
         return res.status(401).send({errors : ['Unauthorized']});
