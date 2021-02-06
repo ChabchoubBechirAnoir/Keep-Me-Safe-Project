@@ -60,6 +60,10 @@ this.authService.postSignIn(this.authorizationCode, this.codeVerifier, this.post
   // Storing the User data.
   this.storageService.store(AuthConstants.AUTH, res.token);
   this.router.navigate(['tabs/tab1']);
+  this.clientId = null;
+  this.codeVerifier = null;
+  this.codeChallenge = null;
+  this.authorizationCode = null;
   }
   },
   (error: any) => {

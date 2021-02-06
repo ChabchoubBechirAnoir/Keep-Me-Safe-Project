@@ -7,3 +7,6 @@ Notre Solution IOT sera accompagnée par une application mobile hybride.
 
 vidéo de présentation de cahier des charges de notre projet :
 https://youtu.be/uQlKYHiUeck
+
+vidéo de présentation de cahier des charges conceptuel de notre projet : 
+https://www.youtube.com/watch?v=la8bMR_eYk8&ab_channel=BellakhalMohamed
