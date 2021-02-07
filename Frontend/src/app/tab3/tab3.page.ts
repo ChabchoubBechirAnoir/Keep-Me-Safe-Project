@@ -12,7 +12,6 @@ export class Tab3Page {
 
   handleFileInput(event) {
     console.log(event);
-    this.userDetails.profilePic = event.target.files[0];
   }
 
 }

@@ -59,7 +59,7 @@ this.authService.postSignIn(this.authorizationCode, this.codeVerifier, this.post
   if (res.token) {
   // Storing the User data.
   this.storageService.store(AuthConstants.AUTH, res.token);
-  this.router.navigate(['tabs/tab1']);
+  this.router.navigate(['tab1']);
   }
   },
   (error: any) => {

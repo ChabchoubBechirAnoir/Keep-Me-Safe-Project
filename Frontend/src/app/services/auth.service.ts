@@ -13,15 +13,13 @@ private httpService: HttpService,
 private storageService: StorageService,
 private router: Router
 ) {}
-
+sensorData: any ;
 base64URLEncode(str) {
     return str.toString('base64')
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
         .replace(/=/g, '');
 }
-
-
 login(postData: any): Observable<any> {
 return this.httpService.post('users/login', postData);
 }
@@ -48,7 +46,7 @@ postSignIn(authorizationCode : any, codeVerifier : any, username : any): Observa
     }
 logout() {
 this.storageService.removeStorageItem(AuthConstants.AUTH).then(res => {
-this.router.navigate(['/login']);
+this.router.navigate(['/']);
 });
 }
 getUserByUsername(username: any): Observable<any> {
@@ -59,4 +57,12 @@ getUserByUsername(username: any): Observable<any> {
 }
 processSign(postData: any){
     }
+
+async getsensorData() : Promise<any>{
+ await this.httpService.get("mqtts").toPromise().then(data => {
+    this.sensorData = data;
+    console.log('Promise resolved.')
+  });
+    return this.sensorData
+    }   
 }

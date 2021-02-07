@@ -1,29 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      My Sensors
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-item>
-    <a>{{profiledata?.forename}}</a>
-  </ion-item>
-  <ion-item>
-    <a>{{profiledata?.surname}}</a>
-  </ion-item>
-  <ion-item>
-    <a>{{profiledata?.created_at}}</a>
+    <a>{{profiledata?.forename}}  {{profiledata?.surname}}</a>
   </ion-item>
   <ion-item>
     <a>{{profiledata?.location}}</a>
   </ion-item>
   <ion-button (click)="logout()">logout</ion-button>
+  <ion-button (click)="createBarChart()">refresh</ion-button>
+  <ion-list-header color="light">Vertical Bar Chart</ion-list-header>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>MQ5</ion-card-subtitle>
+      <ion-card-subtitle>MQ7</ion-card-subtitle>
 
+      <ion-card-title>sensors Results</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+    <ion-card-content>
+      <canvas #barChart1></canvas>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
