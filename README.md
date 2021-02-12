@@ -10,3 +10,9 @@ https://youtu.be/uQlKYHiUeck
 
 vidéo de présentation de cahier des charges conceptuel de notre projet : 
 https://www.youtube.com/watch?v=la8bMR_eYk8&ab_channel=BellakhalMohamed
+
+vidéo du rendu final : 
+https://www.youtube.com/watch?v=uPAn39Ms9dc&feature=youtu.be&ab_channel=BellakhalMohamed
+
+vidéo de démonstration: 
+https://www.youtube.com/watch?v=H0cAvxQBHAQ&feature=youtu.be&ab_channel=BellakhalMohamed
