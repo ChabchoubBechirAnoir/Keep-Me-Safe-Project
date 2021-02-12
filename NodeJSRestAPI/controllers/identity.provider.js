@@ -20,7 +20,7 @@ IdentityProvider.prototype.signUp = async (req, res , next)=> {
         const saved = await identityModel.createIdentity(req.body)
         return res.status(201).send({id : saved._id});
     }catch(err){
-        return next(err);
+        res.status(400).send({errors : ['User already exists']});
     }
 };
 IdentityProvider.prototype.PreSignIn = async(req, res , next) => {
@@ -32,7 +32,7 @@ IdentityProvider.prototype.PreSignIn = async(req, res , next) => {
 IdentityProvider.prototype.signIn = async (req, res , next) => {
     //input : singInId , username , password 
     //route : '/authenticate'
-    //output : authorization code 
+    //output : authorizationCode 
     try {
     if(this.SignInId !== req.body.SignInId){
         return res.status(401).send({errors : ['Unauthorized']});
@@ -87,7 +87,11 @@ IdentityProvider.prototype.PostSignIn = async(req, res , next) => {
         });
         console.log(token);
          });
-    
+    this.clientId=null; 
+    this.codeChallenge=null;
+    this.codeVerifier=null;
+    this.authorizationCode=null;
+    this.SignInId=null; 
     });
     //input : codeverifier , authorizationCode 
     //route : /oauth/token
@@ -117,5 +121,37 @@ IdentityProvider.prototype.getUser =  function(req, res, next) {
 
 IdentityProvider.prototype.minimunPermissionLevelRequired = function(permissionLevel) {
 };
+
+
+IdentityProvider.prototype.DeleteUser =  function(req, res, next) {
+    identityModel.findByUsername(req.body.username).then(async (user)=> {
+        if(!user[0]){
+            return res.status(404).send({errors : ['Does Not Exist']});
+        }
+        else
+        {
+            identityModel.deleteOne({_id :user[0]._id}).then(async (user)=> { });
+            return res.status(200).send({message : ['Deleted']});
+        }
+    });
+  };
+
+
+  IdentityProvider.prototype.UpdateUser =  function(req, res, next) {
+    identityModel.findByUsername(req.body.username).then(async (user)=> {
+        if(!user[0]){
+            return res.status(404).send({errors : ['Does Not Exist']});
+        }
+        else
+        {
+            var conditions= {_id: user[0]._id}; 
+            identityModel.update(conditions,req.body ).then (doc=> {
+                if(!doc){return res.status(404).end();}
+                return res.status(200).json(doc);
+            })  
+            .catch(err=> next(err));
+        }
+    });
+  };
 
 module.exports = IdentityProvider;
